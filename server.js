@@ -21,10 +21,10 @@ var routes = require('./api/routers/node-app-router'); //importing route
 routes(app); //register the route
 
 app.get('/display', function(req, res) {
-        res.sendfile('./index.html'); // load the single view file (angular will handle the page changes on the front-end)
+        res.sendFile(__dirname +'/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 app.get('*', function(req, res) {
-        res.sendfile('./index.html'); // load the single view file (angular will handle the page changes on the front-end)
+         res.sendFile(__dirname +'/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
 app.listen(port);
 
