@@ -3,13 +3,13 @@ module.exports = function(app) {
   var controller = require('../controllers/node-app-controller');
 
   // controller Routes
-  app.route('/tasks')
-    .get(controller.list_all_tasks)
-    .post(controller.create_a_task);
+  app.route('/orders')
+    .get(controller.list_all_Orders)
+    .post(controller.create_a_Order);
 
 
-  app.route('/tasks/:taskId')
-    .get(controller.read_a_task)
-    .put(controller.update_a_task)
-    .delete(controller.delete_a_task);
+  app.route('/orders/:orderId')
+    .get(controller.read_a_Order)
+    .put(controller.update_a_Order)
+    .delete(controller.delete_a_Order);
 };

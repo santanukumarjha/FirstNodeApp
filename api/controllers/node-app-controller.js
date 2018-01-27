@@ -2,63 +2,63 @@
 
 
 var mongoose = require('mongoose'),
-  Task = mongoose.model('Tasks');
+  Order = mongoose.model('Orders');
 
-exports.list_all_tasks = function(req, res) {
-  Task.find({}, function(err, task) {
+exports.list_all_Orders = function(req, res) {
+  Order.find({}, function(err, order) {
     if (err)
       res.send(err);
-    res.json(task);
+    res.json(order);
   });
 };
 
 
 
 
-exports.create_a_task = function(req, res) {
-  var new_task = new Task(req.body);
-  new_task.predicted = Math.floor(Math.random() * 1000)+1;
-  new_task.save(function(err, task) {
+exports.create_a_Order = function(req, res) {
+  var new_Order = new Order(req.body);
+  new_Order.predicted = Math.floor(Math.random() * 1000)+1;
+  new_Order.save(function(err, order) {
     if (err)
       res.send(err);
-    res.json(task);
+    res.json(order);
   });
 };
 
 
-exports.read_a_task = function(req, res) {
-  Task.findById(req.params.taskId, function(err, task) {
+exports.read_a_Order = function(req, res) {
+  Order.findById(req.params.orderId, function(err, order) {
     if (err)
       res.send(err);
-    res.json(task);
+    res.json(order);
   });
 };
 
 
-exports.update_a_task = function (req, res) {
-  console.log('req', req.params.taskId);
-  Task.findById(req.params.taskId, function (err, task) {
+exports.update_a_Order = function (req, res) {
+  Order.findById(req.params.orderId, function (err, order) {
     if (err)
       res.send(err);
-    req.body = { 'createdTillNow': task.createdTillNow + task.quantity }
-    Task.findOneAndUpdate({ _id: req.params.taskId }, req.body, { new: true }, function (err, task) {
+      console.log('order',order);
+    req.body = { 'createdTillNow': order.createdTillNow + order.quantity }
+    Order.findOneAndUpdate({ _id: req.params.orderId }, req.body, { new: true }, function (err, order) {
       if (err)
         res.send(err);
-      res.json(task);
+      res.json(order);
     });
   });
 
 };
 
 
-exports.delete_a_task = function(req, res) {
+exports.delete_a_Order = function(req, res) {
 
 
-  Task.remove({
-    _id: req.params.taskId
-  }, function(err, task) {
+  Order.remove({
+    _id: req.params.orderId
+  }, function(err, order) {
     if (err)
       res.send(err);
-    res.json({ message: 'Task successfully deleted' });
+    res.json({ message: 'Order successfully deleted' });
   });
 };
