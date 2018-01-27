@@ -39,7 +39,6 @@ exports.update_a_Order = function (req, res) {
   Order.findById(req.params.orderId, function (err, order) {
     if (err)
       res.send(err);
-      console.log('order',order);
     req.body = { 'createdTillNow': order.createdTillNow + order.quantity }
     Order.findOneAndUpdate({ _id: req.params.orderId }, req.body, { new: true }, function (err, order) {
       if (err)

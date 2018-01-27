@@ -21,7 +21,6 @@
     var app = angular.module("myApp", []);
     app.controller('FormCtrl', function ($scope, $http) {
         $scope.submitForm = function () {
-            console.log($scope.form);
             $scope.form.quantity = parseInt($scope.form.quantity);
             $http({
                 url: "http://localhost:3000/orders",
