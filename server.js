@@ -9,7 +9,7 @@ var express = require('express'),
 mongoose.Promise = global.Promise;
 mongoose.connect( 'mongodb://jhakrsantau:Santanu@24@ds117858.mlab.com:17858/tododb'|| 'mongodb://localhost/Tododb',function(err,db){
   if(err)
-   return done(err);
+    console.log('error',JSON.stringify(err));
    console.log('connected sucess',db);
 
 }); 
