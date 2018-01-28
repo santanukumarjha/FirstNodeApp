@@ -23,7 +23,7 @@
         $scope.submitForm = function () {
             $scope.form.quantity = parseInt($scope.form.quantity);
             $http({
-                url: "http://dalvirooapp.herokuapp.com/orders",
+                url: "https://dalvirooapp.herokuapp.com/orders",
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 data:  $scope.form

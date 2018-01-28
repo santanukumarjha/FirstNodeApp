@@ -55,14 +55,14 @@
 		var app = angular.module("myApp", []); 
 		app.controller('myCtrl', function($scope, $http) {
 			var initialize = function(){
-				$http.get("http://dalvirooapp.herokuapp.com/orders").then(function(response) {
+				$http.get("https://dalvirooapp.herokuapp.com/orders").then(function(response) {
 					$scope.data = response.data;
 				});
 			};
 			
 
 			$scope.changeStatus = function(obj){
-				$http.put("http://dalvirooapp.herokuapp.com/orders/"+obj._id).then(function(response) {
+				$http.put("https://dalvirooapp.herokuapp.com/orders/"+obj._id).then(function(response) {
 					initialize();
 				});
 			};
