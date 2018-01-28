@@ -7,7 +7,7 @@ var express = require('express'),
   
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect( 'mongodb://jhakrsantau:Santanu@24@ds117858.mlab.com:17858/tododb'|| 'mongodb://localhost/Tododb',function(err,db){
+mongoose.connect( 'mongodb://demo:demo@ds117858.mlab.com:17858/tododb'|| 'mongodb://localhost/Tododb',function(err,db){
   if(err)
     console.log('error',JSON.stringify(err));
    console.log('connected sucess',db);
