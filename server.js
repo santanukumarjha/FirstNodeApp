@@ -21,7 +21,7 @@ var routes = require('./api/routers/node-app-router'); //importing route
 routes(app); //register the route
 
 app.get('/display', function(req, res) {
-        res.sendFile(__dirname +'/client/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+        res.sendFile(__dirname +'/client/index.html'); 
     });
 app.get('/create_order', function(req, res) {
          res.sendFile(__dirname +'/client/order.html'); // load the single view file (angular will handle the page changes on the front-end)
